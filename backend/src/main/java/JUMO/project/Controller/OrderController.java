@@ -37,7 +37,7 @@ public class OrderController {
 
         try{
             String strCode = (String) model.get("stockCode");
-            strCode = strCode.substring(0,strCode.length()-3);
+            strCode = strCode.substring(0,strCode.length());
             String stockName = (String) model.get("stockName");
             Integer amount = (Integer) model.get("amount");
 

@@ -81,7 +81,12 @@ public class StockController {
 
     @GetMapping("/stockprice")
     public Map<String, Object> getStockPrice(@RequestParam String stockId){
+
         String processedStockId = stockId.substring(0,stockId.length()-3);
+        //TODO: 더러운 코드 수정하기
+        if(processedStockId.length()<6){
+            processedStockId=stockId;
+        }
         Long price = orderService.getStockPrice(processedStockId);
         Map<String, Object> resModel = new HashMap<>();
         resModel.put("price", price);
